@@ -1,0 +1,273 @@
+﻿@page "/"
+@page "/Usuarios"
+@inject IServicioUsuario ServicioUsuario
+@inject IServicioEquipo ServicioEquipo
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+
+@if (cantidadUsuarios > 0 && confirmarCantidad == true)
+{
+
+    @if (usuarios != null && usuarios.Any())
+    {
+        <MudTable @ref="_table" RowsPerPage=registros Height="500px" HorizontalScrollbar="true" Items="usuarios" Hover="true" Dense="true" Striped="true" Bordered="false" Square="true" Elevation="0" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Filter="new Func<Usuario,bool>(Filtro)">
+            <ToolBarContent>
+                <MudGrid>
+                    <MudItem xs="3">
+                        <MudSelect T="int" Label="Registros a mostrar" Variant="Variant.Filled" Value="@registros" ValueChanged="@((int registros) => IncreaseRowsPerPage(registros))">
+                            @for (int i = 0; i <= array.Length; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    <MudSelectItem T="int" Value="@(totalUsuarios)" />
+                                    continue;
+                                }
+                                <MudSelectItem T="int" Value="@(Convert.ToInt32(array.GetValue(i-1)))" />
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="5">
+
+                    </MudItem>
+                    <MudItem xs="3">
+                        <MudTextField @bind-Value="palabra" Immediate="true" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="1">
+                        <MudTooltip Text="Agregar nuevo usuario" Color="Color.Default" Duration="700">
+                            <MudIconButton OnClick="(()=>EnlaceAgregarUsuario())" Icon="@Icons.Filled.Add" Color="Color.Success" Target="_blank" />
+                        </MudTooltip>
+                    </MudItem>
+                </MudGrid>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh><MudTableSortLabel SortBy="new Func<Usuario, object>(x=>x.Nombre)">Nombre</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Usuario, object>(x=>x.Puesto)">Puesto</MudTableSortLabel></MudTh>
+                <MudTh>Correos</MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Usuario, object>(x=>x.Sucursal)">Sucursal</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Usuario, object>(x=>x.Agencia)">Agencia</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Usuario, object>(x=>x.FechaModificacion)">Fecha de modificación</MudTableSortLabel></MudTh>
+                <MudTh>Usuarios Sia Chesa</MudTh>
+                <MudTh>Usuarios Sia Renault</MudTh>
+                <MudTh></MudTh>
+                <MudTh></MudTh>
+            </HeaderContent>
+            <RowTemplate Context="userContext">
+                <MudTd DataLabel="Nombre">@userContext.Nombre</MudTd>
+                <MudTd DataLabel="Puesto">@userContext.Puesto</MudTd>
+                <MudTd DataLabel="Correos">
+                    @if (userContext.TotalCorreos >= 1)
+                    {
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="(() => VerCorreos(userContext.Id, userContext.Nombre))" Style="user-select: text; text-transform:none;">Ver correo(s)</MudButton>
+                    }
+                </MudTd>
+                <MudTd DataLabel="Sucursal">@userContext.Sucursal</MudTd>
+                <MudTd DataLabel="Agencia">@userContext.Agencia</MudTd>
+                <MudTd DataLabel="FechaModificacion">@userContext.FechaModificacion.Date.ToShortDateString()</MudTd>
+                <MudTd DataLabel="UsuariosSiaChesa">
+                    @if (userContext.TotalUsuariosChesa >= 1)
+                    {
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="(() => VerUsuariosSiaChesa(userContext.Id, userContext.Nombre))" Style="user-select: text; text-transform:none;">Ver usuario(s) Sia Chesa</MudButton>
+                    }
+                </MudTd>
+                <MudTd DataLabel="UsuariosSiaRenault">
+                    @if (userContext.TotalUsuariosRenault >= 1)
+                    {
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="(() => VerUsuariosSiaRenault(userContext.Id, userContext.Nombre))" Style="user-select: text; text-transform:none;">Ver usuario(s) Sia Renault</MudButton>
+                    }
+                </MudTd>
+                <MudTd DataLabel="">
+                    <MudTooltip Text="Editar registro" Color="Color.Default" Duration="700">
+                        <MudIconButton OnClick="(() => Editar(userContext.Id))" Icon="@Icons.Filled.Edit" Color="Color.Success" Target="_blank" />
+                    </MudTooltip>
+                </MudTd>
+                <MudTd DataLabel="">
+                    <MudTooltip Text="Eliminar registro" Color="Color.Default" Duration="700">
+                        <MudIconButton OnClick="(() => Eliminar(userContext.Id))" Icon="@Icons.Filled.Delete" Color="Color.Secondary" Target="_blank" />
+                    </MudTooltip>
+                </MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager HidePagination="true" HidePageNumber="true" HideRowsPerPage="true" />
+            </PagerContent>
+        </MudTable>
+    }
+    else
+    {
+        <div class="center">
+            <img src="/images/cargando.gif" width="175" height="150" />
+        </div>
+    }
+
+}
+else
+{
+    if (confirmarCantidad == true)
+    {
+        <MudContainer>
+            <MudGrid><MudItem xs="12" /></MudGrid><MudGrid><MudItem xs="12" /></MudGrid><MudGrid><MudItem xs="12" /></MudGrid>
+            <MudGrid>
+                <MudItem xs="12">
+                    <div class="center">
+                        <img src="/images/info.png" width="175" height="150" />
+                    </div>
+                </MudItem>
+            </MudGrid>
+            <MudGrid><MudItem xs="12" /></MudGrid><MudGrid><MudItem xs="12" /></MudGrid>
+
+            <MudGrid Justify="Justify.Center">
+                <MudItem xs="12">
+                    <div class="center">
+                        <MudText Typo="Typo.h3" Align="Align.Center">No hay usuarios aún</MudText>
+                    </div>
+                </MudItem>
+            </MudGrid>
+            <MudGrid><MudItem xs="12" /></MudGrid>
+            <MudGrid Justify="Justify.Center">
+                <MudItem xs="12">
+                    <div class="center">
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="(() => EnlaceAgregarUsuario())" Style="user-select: text; text-transform:none;">
+                            <MudText Typo="Typo.h5" Align="Align.Center">Ingresar nuevo usuario</MudText>
+                        </MudButton>
+                    </div>
+                </MudItem>
+            </MudGrid>
+        </MudContainer>
+    }else{
+        <div class="page">
+            <div class="center">
+                <img src="/images/cargando.gif" width="175" height="150" />
+            </div>
+        </div>
+    }
+}
+
+
+@code {
+    public List<Usuario> usuarios;
+    public int cantidadUsuarios { get; set; }
+
+    private bool confirmarCantidad { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            cantidadUsuarios = await ServicioUsuario.CantidadUsuarios();
+            usuarios = (List<Usuario>)await ServicioUsuario.ObtenerUsuarios();
+            totalUsuarios = usuarios.Count;
+            registros = 50;
+            confirmarCantidad = true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error encontrado: " + e.Message);
+        }
+    }
+
+    protected async Task EnlaceAgregarUsuario()
+    {
+        // La siguiente función evita la excepción "There is no event handler associated with this event" producida al usar una función partiendo
+        // de una función anónima
+        await Task.Yield();
+        NavigationManager.NavigateTo($"/Detalles_Usuario");
+    }
+
+    protected async Task VerCorreos(int idUsuario, string usuarioSeleccionado)
+    {
+        await Task.Yield();
+        var dialogParametros = new DialogParameters();
+        dialogParametros.Add("idUsuarioSeleccionado", idUsuario);
+        dialogParametros.Add("usuario", usuarioSeleccionado);
+
+        var dialog = DialogService.Show<ListaCorreos>("", dialogParametros);
+        var result = await dialog.Result;
+    }
+
+    protected async Task VerUsuariosSiaChesa(int idUsuario, string usuarioSeleccionado)
+    {
+        await Task.Yield();
+        var dialogParametros = new DialogParameters();
+        dialogParametros.Add("idUsuarioSeleccionado", idUsuario);
+        dialogParametros.Add("usuario", usuarioSeleccionado);
+
+        var dialog = DialogService.Show<ListaUsuariosChesa>("", dialogParametros);
+        var result = await dialog.Result;
+    }
+
+    protected async Task VerUsuariosSiaRenault(int idUsuario, string usuarioSeleccionado)
+    {
+        await Task.Yield();
+        var dialogParametros = new DialogParameters();
+        dialogParametros.Add("idUsuarioSeleccionado", idUsuario);
+        dialogParametros.Add("usuario", usuarioSeleccionado);
+
+        var dialog = DialogService.Show<ListaUsuariosRenault>("", dialogParametros);
+        var result = await dialog.Result;
+    }
+
+    public string palabra = "";
+    int totalUsuarios;
+    int registros;
+    int[] array = new int[] { 10, 25, 50, 100, 250, 500 };
+
+    private MudTable<Usuario> _table;
+
+    private void IncreaseRowsPerPage(int registrosRecibidos)
+    {
+        registros = registrosRecibidos;
+        _table.SetRowsPerPage(registros);
+    }
+
+    private bool Filtro(Usuario usuario) => AFiltrar(usuario, palabra);
+
+    private bool AFiltrar(Usuario usuario, string palabra)
+    {
+        if (string.IsNullOrWhiteSpace(palabra))
+            return true;
+        if (usuario.Nombre.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (usuario.Puesto.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (usuario.Sucursal.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (usuario.Agencia.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if ($"{usuario.FechaModificacion}".Contains(palabra))
+            return true;
+        return false;
+    }
+
+    protected async Task Editar(int id)
+    {
+        await Task.Yield();
+        NavigationManager.NavigateTo($"/Detalles_Usuario/{id}");
+    }
+
+    protected async Task Eliminar(int id)
+    {
+        await Task.Yield();
+        var confirmacion = await js.InvokeAsync<bool>("confirmar", "Eliminar", "¿Deseas eliminar este registro?", "question");
+
+        if (confirmacion)
+        {
+            int equiposUsuario = await ServicioUsuario.CantidadEquipos(id);
+
+            if(equiposUsuario > 0){
+                List<Equipo> equipos = (List<Equipo>)await ServicioUsuario.ObtenerEquiposPorUsuario(id);
+
+                foreach(var equipo in equipos){
+                    equipo.IdUsuario = null;
+                    equipo.estaEliminando = true;
+                    await ServicioEquipo.GuardarEquipo(equipo);
+                }
+            }
+
+            await ServicioUsuario.EliminarUsuario(id);
+            usuarios.RemoveAll(p => p.Id == id);
+            Snackbar.Add("Usuario Eliminado", Severity.Success, a => a.VisibleStateDuration = 200);
+            totalUsuarios = usuarios.Count;
+        }
+    }
+}

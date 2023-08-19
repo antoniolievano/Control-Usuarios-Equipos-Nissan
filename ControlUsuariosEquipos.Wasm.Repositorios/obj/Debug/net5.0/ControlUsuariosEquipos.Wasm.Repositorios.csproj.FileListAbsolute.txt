@@ -1,0 +1,45 @@
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.deps.json
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.AssemblyReference.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.AssemblyInfoInputs.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.AssemblyInfo.cs
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.CopyComplete
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\refint\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ref\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.deps.json
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.AssemblyReference.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.AssemblyInfoInputs.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.AssemblyInfo.cs
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.CopyComplete
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\refint\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ref\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.deps.json
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.AssemblyReference.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.AssemblyInfoInputs.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.AssemblyInfo.cs
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.csproj.CopyComplete
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\refint\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm.Repositorios\obj\Debug\net5.0\ref\ControlUsuariosEquipos.Wasm.Repositorios.dll

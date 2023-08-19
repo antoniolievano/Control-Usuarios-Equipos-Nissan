@@ -1,0 +1,683 @@
+﻿@page "/Detalles_Usuario"
+@page "/Detalles_Usuario/{id:int}"
+@inject IServicioAgencia ServicioAgencia
+@inject IServicioSucursal ServicioSucursal
+@inject IServicioUsuario ServicioUsuario
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+
+@if (agencias != null && sucursales != null && renderizar == true)
+{
+    <EditForm Model="usuario" OnValidSubmit="GuardarUsuario">
+        <DataAnnotationsValidator />
+        <MudCard>
+            <MudCardHeader>
+                <MudGrid Justify="Justify.Center">
+                    <MudText Typo="Typo.h3" Align="Align.Center">Detalles de usuario</MudText>
+                </MudGrid>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudContainer>
+
+                    <MudGrid Justify="Justify.Center" Spacing="6">
+                        <MudItem xs="1">
+                            <MudTooltip Text="Cancelar" Color="Color.Default" Duration="700">
+                                <MudIconButton OnClick="(()=>Cancelar())" Icon="@Icons.Filled.Cancel" Color="Color.Secondary" />
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem xs="1">
+                            <MudTooltip Text="Guardar usuario" Color="Color.Default" Duration="700">
+                                <MudIconButton ButtonType="ButtonType.Submit" Icon="@Icons.Filled.Save" Color="Color.Success" />
+                            </MudTooltip>
+                        </MudItem>
+                    </MudGrid>
+
+                    <MudGrid Spacing="4">
+                        <MudItem xs="6">
+                            <MudTextField Label="Nombre" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@usuario.Nombre"></MudTextField>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudTextField Label="Puesto" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@usuario.Puesto"></MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid Spacing="4">
+                        <MudItem xs="6">
+                            <MudSelect T="int" Label="Agencia" Margin="Margin.Dense" Variant="Variant.Filled" Value="usuario.IdAgencia" ValueChanged="@((int idAgencia) => AgenciaACambiado(idAgencia))">
+                                @foreach (var item in agencias)
+                                {
+                                    <MudSelectItem T="int" Value="@item.Id">@item.Nombre</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect T="int" Label="Sucursales" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="usuario.IdSucursal">
+                                @foreach (var item in sucursales)
+                                {
+                                    <MudSelectItem T="int" Value="@item.Id">@item.Nombre</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid><MudItem xs="12" /></MudGrid>
+                    <MudGrid Justify="Justify.Center">
+                        <MudItem xs="6">
+                            <MudTextField Label="Fecha de modificación" ReadOnly=true Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@usuario.FechaModificacion">usuario.FechaModificacion.ToString("yyyyMMdd")</MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid><MudItem xs="12" /></MudGrid>
+                    <MudGrid><MudItem xs="12" /></MudGrid>
+                    <MudGrid Justify="Justify.Center" Spacing="3">
+                        <MudItem xs="1">
+                            <MudTooltip Text="Ingresar correo" Color="Color.Default" Duration="700">
+                                <MudIconButton OnClick="(()=>AgregarCorreo())" Icon="@Icons.Filled.Email" Color="Color.Warning" />
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem xs="1">
+                            <MudTooltip Text="Ingresar cuenta SIA Chesa" Color="Color.Default" Duration="700">
+                                <MudIconButton OnClick="(()=>AgregarUsuarioChesa())" Icon="@Icons.Filled.AccountBox" Color="Color.Primary" />
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem xs="1">
+                            <MudTooltip Text="Ingresar cuenta SIA Renault" Color="Color.Default" Duration="700">
+                                <MudIconButton OnClick="(()=>AgregarUsuarioRenault())" Icon="@Icons.Filled.AccountBox" Color="Color.Warning" />
+                            </MudTooltip>
+                        </MudItem>
+                    </MudGrid>
+
+                </MudContainer>
+            </MudCardContent>
+        </MudCard>
+        <div class="row"><div class="col-md-12 mb-3" /></div>
+        <MudDivider DividerType="DividerType.FullWidth" />
+        <div class="row"><div class="col-md-12 mb-3" /></div>
+
+        <MudContainer>
+            <MudGrid Spacing="2">
+                @if (usuario.Correos != null && usuario.Correos.Any() && usuario.UsuariosChesa != null && usuario.UsuariosChesa.Any() && usuario.UsuariosRenault != null && usuario.UsuariosRenault.Any())
+                {
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">Correos</MudText>
+                        <MudTable Items="usuario.Correos" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.NumeroCorreo)">Número</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Correo)">Correo</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Contraseña)">Contraseña</MudTableSortLabel></MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="emailContext">
+                                <MudTd DataLabel="Correo">@emailContext.NumeroCorreo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Correo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Contraseña</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarCorreo(emailContext.NumeroCorreo))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="3">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Chesa</MudText>
+                        <MudTable Items="usuario.UsuariosChesa" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="chesaUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@chesaUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@chesaUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@chesaUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioChesa(chesaUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="3">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Renault</MudText>
+                        <MudTable Items="usuario.UsuariosRenault" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="renaultUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@renaultUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@renaultUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@renaultUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioRenault(renaultUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                }
+                else if (usuario.Correos != null && usuario.Correos.Any() && usuario.UsuariosChesa != null && usuario.UsuariosChesa.Any())
+                {
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">Correos</MudText>
+                        <MudTable Items="usuario.Correos" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.NumeroCorreo)">Número</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Correo)">Correo</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Contraseña)">Contraseña</MudTableSortLabel></MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="emailContext">
+                                <MudTd DataLabel="Correo">@emailContext.NumeroCorreo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Correo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Contraseña</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarCorreo(emailContext.NumeroCorreo))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Chesa</MudText>
+                        <MudTable Items="usuario.UsuariosChesa" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="chesaUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@chesaUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@chesaUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@chesaUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioChesa(chesaUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                }
+                else if (usuario.Correos != null && usuario.Correos.Any() && usuario.UsuariosRenault != null && usuario.UsuariosRenault.Any())
+                {
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">Correos</MudText>
+                        <MudTable Items="usuario.Correos" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.NumeroCorreo)">Número</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Correo)">Correo</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Contraseña)">Contraseña</MudTableSortLabel></MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="emailContext">
+                                <MudTd DataLabel="Correo">@emailContext.NumeroCorreo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Correo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Contraseña</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarCorreo(emailContext.NumeroCorreo))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Renault</MudText>
+                        <MudTable Items="usuario.UsuariosRenault" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="renaultUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@renaultUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@renaultUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@renaultUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioRenault(renaultUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                }
+                else if (usuario.UsuariosChesa != null && usuario.UsuariosChesa.Any() && usuario.UsuariosRenault != null && usuario.UsuariosRenault.Any())
+                {
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Chesa</MudText>
+                        <MudTable Items="usuario.UsuariosChesa" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="chesaUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@chesaUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@chesaUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@chesaUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioChesa(chesaUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Renault</MudText>
+                        <MudTable Items="usuario.UsuariosRenault" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="renaultUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@renaultUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@renaultUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@renaultUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioRenault(renaultUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                }
+                else if (usuario.Correos != null && usuario.Correos.Any())
+                {
+                    <MudItem xs="3" />
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">Correos</MudText>
+                        <MudTable Items="usuario.Correos" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.NumeroCorreo)">Número</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Correo)">Correo</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Correos, object>(x=>x.Contraseña)">Contraseña</MudTableSortLabel></MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="emailContext">
+                                <MudTd DataLabel="Correo">@emailContext.NumeroCorreo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Correo</MudTd>
+                                <MudTd DataLabel="Correo">@emailContext.Contraseña</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarCorreo(emailContext.NumeroCorreo))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="3" />
+                }
+                else if (usuario.UsuariosChesa != null && usuario.UsuariosChesa.Any())
+                {
+                    <MudItem xs="3" />
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Chesa</MudText>
+                        <MudTable Items="usuario.UsuariosChesa" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Chesa, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="chesaUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@chesaUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@chesaUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@chesaUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioChesa(chesaUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="3" />
+                }
+                else if (usuario.UsuariosRenault != null && usuario.UsuariosRenault.Any())
+                {
+                    <MudItem xs="3" />
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">SIA Renault</MudText>
+                        <MudTable Items="usuario.UsuariosRenault" Hover="true" Dense="true" Striped="true" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Elevation="0">
+                            <HeaderContent>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.NumeroCuenta)">Cuenta</MudTableSortLabel></MudTh>
+                                <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                                <MudTh>Ubicación</MudTh>
+                                <MudTh></MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="renaultUserContext">
+                                <MudTd DataLabel="NumeroCuenta">@renaultUserContext.NumeroCuenta</MudTd>
+                                <MudTd DataLabel="Usuario">@renaultUserContext.Usuario</MudTd>
+                                <MudTd DataLabel="Ubicacion">@renaultUserContext.Ubicacion</MudTd>
+                                <MudTd DataLabel="">
+                                    <MudTooltip Text="Eliminar" Color="Color.Default" Duration="700">
+                                        <MudFab OnClick="@(()=> EliminarUsuarioRenault(renaultUserContext.NumeroCuenta))" Color="Color.Secondary" Icon="@Icons.Filled.Delete" Size="Size.Small" IconSize="Size.Small"></MudFab>
+                                    </MudTooltip>
+                                </MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </MudItem>
+                    <MudItem xs="3" />
+                }
+            </MudGrid>
+
+        </MudContainer>
+
+    </EditForm>
+}
+else
+{
+    <div class="center">
+        <img src="/images/cargando.gif" width="175" height="150" />
+    </div>
+}
+
+@code {
+    public Usuario usuario;
+    List<object> listaUsuario = new List<object>();
+    List<object> listaCopiaUsuario = new List<object>();
+    private bool cambio;
+    private bool usuarioReplicado;
+    private bool confirmarGuardar;
+    public IEnumerable<Agencia> agencias = new List<Agencia>();
+    public IEnumerable<Sucursal> sucursales = new List<Sucursal>();
+
+    [Parameter]
+    public int id { get; set; }
+
+    public int correoActual;
+    public int usuarioChesaActual;
+    public int usuarioRenaultActual;
+    public bool renderizar;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            if (id > 0)
+            {
+                usuario = await ServicioUsuario.DetallesUsuario(id);
+
+                PropertyInfo[] propiedadesCopiaUsuario = usuario.GetType().GetProperties();
+
+                foreach (var info in propiedadesCopiaUsuario)
+                {
+                    var valor = info.GetValue(usuario);
+                    listaCopiaUsuario.Add(valor);
+                }
+
+            }
+            else
+            {
+                usuario = new Usuario() { FechaModificacion = DateTime.Today };
+            }
+
+            //El siguiente IEnumerable de agencias se carga con los valores obtenidos del servicio ServicioAgencia
+            agencias = await ServicioAgencia.ObtenerAgencias();
+
+            if (agencias != null && agencias.Any())
+            {
+                usuario.IdAgencia = agencias.FirstOrDefault().Id;
+
+                // Cargar las sucursales en base al Id de la agencia predeterminada
+                await CargarSucursales(usuario.IdAgencia);
+            }
+
+            renderizar = true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error encontrado: " + e.Message);
+        }
+    }
+
+    protected async Task AgenciaACambiado(int idAgencia)
+    {
+        usuario.IdAgencia = idAgencia;
+
+        if (usuario.IdAgencia > 0)
+            await CargarSucursales(usuario.IdAgencia);
+    }
+
+    private async Task CargarSucursales(int idAgencia)
+    {
+        sucursales = await ServicioSucursal.ObtenerSucursalesPorAgencia(idAgencia);
+
+        if (sucursales != null && sucursales.Any())
+        {
+            usuario.IdSucursal = sucursales.FirstOrDefault().Id;
+        }
+    }
+
+    protected async Task AgregarCorreo()
+    {
+        await Task.Yield();
+        var dialog = DialogService.Show<DetallesCorreo>();
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            var correo = (Usuario_Correos)result.Data;
+
+            if (usuario.Correos == null)
+            {
+                usuario.Correos = new List<Usuario_Correos>();
+            }
+
+            if (usuario.Correos != null && usuario.Correos.Any())
+            {
+                correoActual = usuario.Correos.Count;
+            }
+            else
+            {
+                correoActual = 0;
+            }
+
+            correoActual++;
+
+            correo.NumeroCorreo = correoActual;
+
+            usuario.Correos.Add(correo);
+
+            cambio = true;
+        }
+    }
+
+    protected async Task EliminarCorreo(int numeroCorreo)
+    {
+        await Task.Yield();
+        usuario.Correos.RemoveAll(p => p.NumeroCorreo == numeroCorreo);
+        correoActual--;
+        cambio = true;
+        Snackbar.Add("Correo eliminado", Severity.Success, a => a.VisibleStateDuration = 200);
+    }
+
+    protected async Task AgregarUsuarioChesa()
+    {
+        await Task.Yield();
+        var dialog = DialogService.Show<DetallesUsuarioChesa>();
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            var usuarioChesa = (Usuario_Sia_Chesa)result.Data;
+
+            if (usuario.UsuariosChesa == null)
+            {
+                usuario.UsuariosChesa = new List<Usuario_Sia_Chesa>();
+            }
+
+            if (usuario.UsuariosChesa != null && usuario.UsuariosChesa.Any())
+            {
+                usuarioChesaActual = usuario.UsuariosChesa.Count;
+            }
+            else
+            {
+                usuarioChesaActual = 0;
+            }
+
+            usuarioChesaActual++;
+
+            usuarioChesa.NumeroCuenta = usuarioChesaActual;
+
+            usuario.UsuariosChesa.Add(usuarioChesa);
+
+            cambio = true;
+        }
+    }
+
+    protected async Task EliminarUsuarioChesa(int numeroCuenta)
+    {
+        await Task.Yield();
+        usuario.UsuariosChesa.RemoveAll(p => p.NumeroCuenta == numeroCuenta);
+        usuarioChesaActual--;
+        cambio = true;
+        Snackbar.Add("Correo eliminado", Severity.Success, a => a.VisibleStateDuration = 200);
+    }
+
+    protected async Task AgregarUsuarioRenault()
+    {
+        await Task.Yield();
+        var dialog = DialogService.Show<DetallesUsuarioRenault>();
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            var usuarioRenault = (Usuario_Sia_Renault)result.Data;
+
+            if (usuario.UsuariosRenault == null)
+            {
+                usuario.UsuariosRenault = new List<Usuario_Sia_Renault>();
+            }
+
+            if (usuario.UsuariosRenault != null && usuario.UsuariosRenault.Any())
+            {
+                usuarioRenaultActual = usuario.UsuariosRenault.Count;
+            }
+            else
+            {
+                usuarioRenaultActual = 0;
+            }
+
+            usuarioRenaultActual++;
+
+            usuarioRenault.NumeroCuenta = usuarioRenaultActual;
+
+            usuario.UsuariosRenault.Add(usuarioRenault);
+
+            cambio = true;
+        }
+    }
+
+    protected async Task EliminarUsuarioRenault(int numeroCuenta)
+    {
+        await Task.Yield();
+        usuario.UsuariosRenault.RemoveAll(p => p.NumeroCuenta == numeroCuenta);
+        usuarioRenaultActual--;
+        cambio = true;
+        Snackbar.Add("Correo eliminado", Severity.Success, a => a.VisibleStateDuration = 200);
+    }
+
+    protected async Task GuardarUsuario()
+    {
+        await Task.Yield();
+        usuarioReplicado = false;
+
+        if (usuario.Id > 0)
+        {
+            PropertyInfo[] propiedadesUsuario = usuario.GetType().GetProperties();
+
+            foreach (var info in propiedadesUsuario)
+            {
+                var valor = info.GetValue(usuario);
+                listaUsuario.Add(valor);
+            }
+
+            for (int i = 0; i < listaUsuario.Count; i++)
+            {
+                var valorActual = listaUsuario[i];
+                var valorInicial = listaCopiaUsuario[i];
+                if (valorActual == null && valorInicial == null)
+                {
+                    continue;
+                }
+                else if (!valorActual.Equals(valorInicial))
+                {
+                    cambio = true;
+                    break;
+                }
+            }
+
+            if (cambio)
+            {
+                usuario.FechaModificacion = DateTime.Now;
+            }
+            await ServicioUsuario.GuardarUsuario(usuario);
+            Snackbar.Add("Usuario actualizado", Severity.Success, a => a.VisibleStateDuration = 200);
+            NavigateToHome();
+        }
+        else
+        {
+            confirmarGuardar = true;
+
+            List<Usuario> usuarios = (List<Usuario>)await ServicioUsuario.ObtenerUsuarios();
+
+            foreach (var item in usuarios)
+            {
+                if (usuario.Nombre.ToUpper().Equals(item.Nombre))
+                {
+                    usuarioReplicado = true;
+                }
+            }
+            if (usuarioReplicado)
+            {
+                var confirmacion = await js.InvokeAsync<bool>("confirmar", "Usuario existente", "¿Guardar de todas formas?", "question");
+
+                if (confirmacion)
+                {
+                    await ServicioUsuario.GuardarUsuario(usuario);
+                    Snackbar.Add("Usuario agregado", Severity.Success, a => a.VisibleStateDuration = 200);
+                }
+                else
+                {
+                    confirmarGuardar = false;
+                }
+            }
+            else
+            {
+                await ServicioUsuario.GuardarUsuario(usuario);
+                Snackbar.Add("Usuario agregado", Severity.Success, a => a.VisibleStateDuration = 200);
+            }
+
+        }
+
+        if (confirmarGuardar)
+            NavigateToHome();
+    }
+
+    protected async Task Cancelar()
+    {
+        await Task.Yield();
+        NavigateToHome();
+    }
+
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}

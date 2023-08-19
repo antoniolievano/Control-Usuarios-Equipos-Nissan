@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "sKY2+/ZwlhSWu4j3PtW1DwjbqpBdNfXuh3KJFECqLbktbOjejODv8msOF1IR4HLda4XGztUrTK5U2AE1N8fE3A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Víctor Liévano\\Documents\\Repositorio local\\Proyectos Visual Studio\\Practicas2022\\ControlUsuariosEquipos.Wasm.Repositorios\\ControlUsuariosEquipos.Wasm.Repositorios.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Víctor Liévano\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512"
+  ],
+  "logs": []
+}

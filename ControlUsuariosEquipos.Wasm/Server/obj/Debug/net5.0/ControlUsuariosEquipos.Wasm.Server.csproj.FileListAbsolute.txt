@@ -1,0 +1,220 @@
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.StaticWebAssets.xml
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\appsettings.json
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugProxy.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Pdb.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Rocks.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Newtonsoft.Json.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.xml
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.exe
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.deps.json
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.runtimeconfig.json
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.runtimeconfig.dev.json
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Dapper.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.JSInterop.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.JSInterop.WebAssembly.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\MudBlazor.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.AssemblyReference.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.AssemblyInfoInputs.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.AssemblyInfo.cs
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.CoreCompileInputs.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorAssemblyInfo.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorAssemblyInfo.cs
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\scopedcss\bundle\ControlUsuariosEquipos.Wasm.Server.styles.css
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.Manifest.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.xml
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.TagHelpers.input.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.TagHelpers.output.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorCoreGenerate.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorTargetAssemblyInfo.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorTargetAssemblyInfo.cs
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.CopyComplete
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\refint\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.pdb
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.genruntimeconfig.cache
+C:\Users\manch\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ref\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\appsettings.json
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugProxy.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Pdb.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Rocks.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Newtonsoft.Json.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.StaticWebAssets.xml
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.xml
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.exe
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.deps.json
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.runtimeconfig.json
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.runtimeconfig.dev.json
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Dapper.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.JSInterop.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.JSInterop.WebAssembly.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\MudBlazor.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.AssemblyReference.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.AssemblyInfoInputs.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.AssemblyInfo.cs
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.CoreCompileInputs.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorAssemblyInfo.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorAssemblyInfo.cs
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\scopedcss\bundle\ControlUsuariosEquipos.Wasm.Server.styles.css
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.Manifest.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.Pack.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.ControlUsuariosEquipos.Wasm.Server.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.build.ControlUsuariosEquipos.Wasm.Server.props
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.ControlUsuariosEquipos.Wasm.Server.props
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.ControlUsuariosEquipos.Wasm.Server.props
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.xml
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.TagHelpers.input.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.TagHelpers.output.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorCoreGenerate.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorTargetAssemblyInfo.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorTargetAssemblyInfo.cs
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.CopyComplete
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\refint\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.pdb
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.genruntimeconfig.cache
+C:\Users\manch\OneDrive\Documentos\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ref\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\BrowserDebugProxy.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Pdb.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Mono.Cecil.Rocks.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\BlazorDebugProxy\Newtonsoft.Json.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.StaticWebAssets.xml
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\appsettings.json
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.xml
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.exe
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.deps.json
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.runtimeconfig.json
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.runtimeconfig.dev.json
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Dapper.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.JSInterop.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\Microsoft.JSInterop.WebAssembly.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\MudBlazor.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Repositorios.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Client.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\bin\Debug\net5.0\ControlUsuariosEquipos.Wasm.Shared.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.AssemblyReference.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.AssemblyInfoInputs.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.AssemblyInfo.cs
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.CoreCompileInputs.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorAssemblyInfo.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorAssemblyInfo.cs
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\scopedcss\bundle\ControlUsuariosEquipos.Wasm.Server.styles.css
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.Manifest.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.Pack.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.ControlUsuariosEquipos.Wasm.Server.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.build.ControlUsuariosEquipos.Wasm.Server.props
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.ControlUsuariosEquipos.Wasm.Server.props
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.ControlUsuariosEquipos.Wasm.Server.props
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\staticwebassets\ControlUsuariosEquipos.Wasm.Server.StaticWebAssets.xml
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.TagHelpers.input.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.TagHelpers.output.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorCoreGenerate.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorTargetAssemblyInfo.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.RazorTargetAssemblyInfo.cs
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.Views.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.csproj.CopyComplete
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\refint\ControlUsuariosEquipos.Wasm.Server.dll
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.pdb
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ControlUsuariosEquipos.Wasm.Server.genruntimeconfig.cache
+C:\Users\Víctor Liévano\Documents\Repositorio local\Proyectos Visual Studio\Practicas2022\ControlUsuariosEquipos.Wasm\Server\obj\Debug\net5.0\ref\ControlUsuariosEquipos.Wasm.Server.dll

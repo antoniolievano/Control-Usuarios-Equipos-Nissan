@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.17" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ControlUsuariosEquipos.Wasm.Repositorios\ControlUsuariosEquipos.Wasm.Repositorios.csproj" />
+    <ProjectReference Include="..\Client\ControlUsuariosEquipos.Wasm.Client.csproj" />
+    <ProjectReference Include="..\Shared\ControlUsuariosEquipos.Wasm.Shared.csproj" />
+  </ItemGroup>
+
+
+</Project>

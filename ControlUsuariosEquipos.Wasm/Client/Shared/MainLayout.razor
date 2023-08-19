@@ -1,0 +1,89 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime js;
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
+<MudDialogProvider FullWidth="true"
+                   MaxWidth="MaxWidth.Medium"
+                   CloseButton="true"
+                   DisableBackdropClick="true"
+                   Position="DialogPosition.Center" />
+<MudSnackbarProvider />
+
+<MudLayout>
+        @if (_isDarkMode)
+        {
+        <MudAppBar Elevation="0" Style="@($"background:#32333d;")" @bind-Open="_drawerOpen">
+            <MudIconButton Class="mud-theme-dark py-2 px-3 mx-2 rounded" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <MudSpacer />
+
+            <MudText Class="pa-1 mr-2" Typo="Typo.body2" Align="Align.Right">Bienvenido al sistema de Chesa San Cristóbal</MudText>
+            <MudText Typo="Typo.body2" Align="Align.Right">V.2022.11</MudText>
+
+            <MudTooltip Text="Info" Color="Color.Default" Duration="700">
+                <MudIconButton Icon="@Icons.Material.Filled.Info" Color="Color.Inherit" @onclick="Informacion" Target="_blank" />
+            </MudTooltip>
+            <MudTooltip Text="Modo oscuro" Color="Color.Default" Duration="700">
+                <MudIconButton @onclick="ToggleDarkMode" Color="Color.Inherit" Icon="@modeIcon" />
+            </MudTooltip>
+
+            </MudAppBar>
+            <MudDrawer @bind-Open="_drawerOpen" Breakpoint="Breakpoint.Md" PreserveOpenState=true Elevation="1">
+            <MudDrawerHeader>
+                <MudText Typo="Typo.h6" Style="@($"color:{_theme.Palette.White};")">Bienvenido</MudText>
+            </MudDrawerHeader>
+            <NavMenu />
+        </MudDrawer>
+        }else
+        {
+            <MudAppBar Elevation="0" Style="@($"background:#FFFFFF;")" @bind-Open="_drawerOpen">
+            <MudIconButton Class="mud-theme-tertiary py-2 px-3 mx-2 rounded" Icon="@Icons.Material.Filled.Menu" Style="@($"background:#2AAF90;")" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <MudSpacer />
+
+            <MudText Style="@($"color:{_theme.Palette.Dark};")" Class="pa-1 mr-2" Typo="Typo.body2" Align="Align.Right">Bienvenido al sistema de Chesa San Cristóbal</MudText>
+            <MudText Style="@($"color:{_theme.Palette.Dark};")" Typo="Typo.body2" Align="Align.Right">V.2022.11</MudText>
+
+            <MudTooltip Text="Info" Color="Color.Default" Duration="700">
+                <MudIconButton Style="@($"color:{_theme.Palette.Dark};")" Icon="@Icons.Material.Filled.Info" Color="Color.Inherit" @onclick="Informacion" Target="_blank" />
+            </MudTooltip>
+            <MudTooltip Text="Modo predeterminado" Color="Color.Default" Duration="700">
+                <MudIconButton Style="@($"color:{_theme.Palette.Dark};")" @onclick="ToggleDarkMode" Color="Color.Inherit" Icon="@modeIcon" />
+            </MudTooltip>
+            
+            </MudAppBar>
+        <MudDrawer Style="@($"color:{_theme.Palette.White}; background:#2f4050;")" @bind-Open="_drawerOpen" Breakpoint="Breakpoint.Md" PreserveOpenState=true Elevation="1">
+            <MudDrawerHeader>
+                <MudText Typo="Typo.h6">Bienvenido</MudText>
+            </MudDrawerHeader>
+            <NavMenu />
+        </MudDrawer>
+        }
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-2 pt-3">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+
+    private MudTheme _theme = new();
+    private bool _isDarkMode;
+    private string modeIcon => _isDarkMode ? Icons.Outlined.DarkMode : @Icons.Outlined.LightMode;
+
+    protected async Task ToggleDarkMode()
+    {
+        await Task.Yield();
+        _isDarkMode = !_isDarkMode;
+    }
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    protected async Task Informacion()
+    {
+        await js.InvokeVoidAsync("desarrollador");
+    }
+}

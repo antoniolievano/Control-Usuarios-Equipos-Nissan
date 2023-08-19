@@ -1,0 +1,65 @@
+﻿@inject IServicioUsuario ServicioUsuario
+@inject IServicioPortapapeles ServicioPortapapeles
+
+@if (usuariosRenault != null && usuariosRenault.Any())
+{
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h5" Align="Align.Center">Sia Renault</MudText>
+            <MudText Typo="Typo.h6" Align="Align.Center">@usuario</MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudContainer MaxWidth="MaxWidth.Small">
+                <MudGrid Justify="Justify.Center">
+                    <MudTable Class="@($"cursor-pointer")" Items="usuariosRenault" Hover="true" Dense="true" Striped="true" Bordered="false" Square="true" Elevation="0" Breakpoint="Breakpoint.Md" SortLabel="Sort By">
+                        <HeaderContent>
+                            <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.NumeroCuenta)">Número</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<Usuario_Sia_Renault, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                            <MudTh>Ubicación</MudTh>
+                        </HeaderContent>
+                        <RowTemplate Context="chesaUsersContext">
+                            <MudTd DataLabel="NumeroCuenta">@chesaUsersContext.NumeroCuenta</MudTd>
+                            <MudTd DataLabel="Usuario">@chesaUsersContext.Usuario</MudTd>
+                            <MudTd DataLabel="Ubicacion">@chesaUsersContext.Ubicacion</MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                </MudGrid>
+                <MudGrid><MudItem xs="12" /><MudItem xs="12" /></MudGrid>
+            </MudContainer>
+        </DialogContent>
+    </MudDialog>
+}
+else
+{
+    <div class="center">
+        <img src="/images/cargando.gif" width="175" height="150" />
+    </div>
+}
+
+@code {
+    public IEnumerable<Usuario_Sia_Renault> usuariosRenault;
+
+    [Parameter]
+    public int idUsuarioSeleccionado { get; set; }
+
+    [Parameter]
+    public string usuario { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            usuariosRenault = await ServicioUsuario.ObtenerUsuariosSiaRenaultPorUsuario(idUsuarioSeleccionado);
+        }
+        catch (Exception e)
+        {
+
+            Console.WriteLine("Error encontrado: " + e.Message);
+        }
+    }
+
+    private async Task CopiarAlPortapapeles(string texto)
+    {
+        await ServicioPortapapeles.CopyToClipboard(texto);
+    }
+}

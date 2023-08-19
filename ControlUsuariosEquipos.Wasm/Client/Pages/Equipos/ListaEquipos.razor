@@ -1,0 +1,333 @@
+﻿@page "/Equipos"
+@inject IServicioEquipo ServicioEquipo
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+
+@if (cantidadEquipos > 0 && confirmarCantidad == true)
+{
+    @if (equipos != null && equipos.Any())
+    {
+        <MudTable @ref="_table" RowsPerPage=registros Items="equipos" Hover="true" Dense="true" Striped="true" Height="500px" HorizontalScrollbar="true" Bordered="false" Square="true" Elevation="0" Breakpoint="Breakpoint.Md" SortLabel="Sort By" Filter="new Func<Equipo,bool>(Filtro)">
+            <ToolBarContent>
+                <MudGrid>
+                    <MudItem xs="3">
+                        <MudSelect T="int" Label="Registros a mostrar" Variant="Variant.Filled" Value="@registros" ValueChanged="@((int registros) => IncreaseRowsPerPage(registros))">
+                            @for (int i = 0; i <= array.Length; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    <MudSelectItem T="int" Value="@(totalEquipos)" />
+                                    continue;
+                                }
+                                <MudSelectItem T="int" Value="@(Convert.ToInt32(array.GetValue(i-1)))" />
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="2">
+
+                    </MudItem>
+                    <MudItem xs="3">
+                        <MudTextField @bind-Value="palabra" Immediate="true" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="1">
+                        <MudTooltip Text="Agregar nuevo equipo" Color="Color.Default" Duration="700">
+                            <MudIconButton OnClick="(()=>EnlaceAgregarEquipo())" Icon="@Icons.Filled.Add" Color="Color.Success" Target="_blank" />
+                        </MudTooltip>
+                    </MudItem>
+                    <MudItem xs="3">
+                        <MudCheckBox Checked="equiposLibres" CheckedChanged="((bool activar)=>ObtenerEquiposSinUsuario(activar))" Color="@Color.Primary">
+                            Equipos libres: @(equiposLibres == true ? "Habilitado" : "Deshabilitado")
+                        </MudCheckBox>
+                    </MudItem>
+                </MudGrid>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Usuario)">Usuario</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Sucursal)">Sucursal</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Tipo)">Tipo</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Folio)">Folio</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Marca)">Marca</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Modelo)">Modelo</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Serie)">Serie</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.Nombre)">Nombre</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<Equipo, object>(x=>x.FechaModificacion)">Fecha de modificación</MudTableSortLabel></MudTh>
+                <MudTh>Hardware PC</MudTh>
+                <MudTh>Software PC</MudTh>
+                <MudTh>Observaciones</MudTh>
+                <MudTh></MudTh>
+                <MudTh></MudTh>
+            </HeaderContent>
+            <RowTemplate Context="machineContext">
+                <MudTd DataLabel="Usuario">
+                    @machineContext.Usuario
+                </MudTd>
+                <MudTd DataLabel="Sucursal">@machineContext.Sucursal</MudTd>
+                <MudTd DataLabel="Tipo">@machineContext.Tipo</MudTd>
+                <MudTd DataLabel="Folio">@machineContext.Folio</MudTd>
+                <MudTd DataLabel="Marca">@machineContext.Marca</MudTd>
+                <MudTd DataLabel="Modelo">@machineContext.Modelo</MudTd>
+                <MudTd DataLabel="Serie">@machineContext.Serie</MudTd>
+                <MudTd DataLabel="Nombre">@machineContext.Nombre</MudTd>
+                <MudTd DataLabel="FechaModificacion">@machineContext.FechaModificacion.Date.ToShortDateString()</MudTd>
+                <MudTd DataLabel="Hardware">
+                    @if (machineContext.HardwarePC == 1)
+                    {
+                        <MudButton OnClick="(() => VerHardware(machineContext.Id, machineContext.Tipo, machineContext.Folio))" Variant="Variant.Text" Color="Color.Primary" Style="user-select: text; text-transform:none;">Ver hardware</MudButton>
+                    }
+                </MudTd>
+                <MudTd DataLabel="Software">
+                    @if (machineContext.SoftwarePC == 1)
+                    {
+                        <MudButton OnClick="(() => VerSoftware(machineContext.Id, machineContext.Tipo, machineContext.Folio))" Variant="Variant.Text" Color="Color.Primary" Style="user-select: text; text-transform:none;">Ver software</MudButton>
+                    }
+                </MudTd>
+                <MudTd DataLabel="Observaciones">
+                    @if (!(string.IsNullOrEmpty(machineContext.Observaciones) && string.IsNullOrWhiteSpace(machineContext.Observaciones)))
+                    {
+                        <MudButton OnClick="(() => VerObservaciones(machineContext.Observaciones, machineContext.Tipo, machineContext.Folio))" Variant="Variant.Text" Color="Color.Primary" Style="user-select: text; text-transform:none;">Ver observaciones</MudButton>
+                    }
+                </MudTd>
+                <MudTd DataLabel="">
+                    <MudTooltip Text="Editar registro" Color="Color.Default" Duration="700">
+                        <MudIconButton OnClick="(() => Editar(machineContext.Id))" Icon="@Icons.Filled.Edit" Color="Color.Success" Target="_blank" />
+                    </MudTooltip>
+                </MudTd>
+                <MudTd DataLabel="">
+                    <MudTooltip Text="Eliminar registro" Color="Color.Default" Duration="700">
+                        <MudIconButton OnClick="(() => Eliminar(machineContext.Id))" Icon="@Icons.Filled.Delete" Color="Color.Secondary" Target="_blank" />
+                    </MudTooltip>
+                </MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager HidePagination="true" HidePageNumber="true" HideRowsPerPage="true" />
+            </PagerContent>
+        </MudTable>
+    }
+
+}
+else
+{
+    if (confirmarCantidad == true)
+    {
+        <MudContainer>
+            <MudGrid><MudItem xs="12" /></MudGrid><MudGrid><MudItem xs="12" /></MudGrid><MudGrid><MudItem xs="12" /></MudGrid>
+            <MudGrid>
+                <MudItem xs="12">
+                    <div class="center">
+                        <img src="/images/info.png" width="175" height="150" />
+                    </div>
+                </MudItem>
+            </MudGrid>
+            <MudGrid><MudItem xs="12" /></MudGrid><MudGrid><MudItem xs="12" /></MudGrid>
+
+            <MudGrid Justify="Justify.Center">
+                <MudItem xs="12">
+                    <div class="center">
+                        <MudText Typo="Typo.h3" Align="Align.Center">No hay equipos aún</MudText>
+                    </div>
+                </MudItem>
+            </MudGrid>
+            <MudGrid><MudItem xs="12" /></MudGrid>
+            <MudGrid Justify="Justify.Center">
+                <MudItem xs="12">
+                    <div class="center">
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="(() => EnlaceAgregarEquipo())" Style="user-select: text; text-transform:none;">
+                            <MudText Typo="Typo.h5" Align="Align.Center">Ingresar nuevo equipo</MudText>
+                        </MudButton>
+                    </div>
+                </MudItem>
+            </MudGrid>
+        </MudContainer>
+    }
+    else
+    {
+        <div class="center">
+            <img src="/images/cargando.gif" width="175" height="150" />
+        </div>
+    }
+
+}
+
+
+@code {
+    public int cantidadEquipos { get; set; }
+    public List<Equipo> equipos;
+
+    private bool confirmarCantidad { get; set; }
+    private bool equiposLibres { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            cantidadEquipos = await ServicioEquipo.CantidadEquipos();
+            confirmarCantidad = true;
+            equipos = (List<Equipo>)await ServicioEquipo.ObtenerEquipos();
+            totalEquipos = equipos.Count;
+            registros = 50;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error encontrado: " + e.Message);
+        }
+    }
+
+    private async Task EnlaceAgregarEquipo()
+    {
+        await Task.Yield();
+        NavigationManager.NavigateTo($"/Equipos/Detalles_Equipo");
+    }
+
+    public string palabra = "";
+    int totalEquipos;
+    int registros;
+    int[] array = new int[] { 10, 25, 50, 100, 250, 500 };
+
+    private MudTable<Equipo> _table;
+
+    private void IncreaseRowsPerPage(int registrosRecibidos)
+    {
+        registros = registrosRecibidos;
+        _table.SetRowsPerPage(registros);
+    }
+
+    private bool Filtro(Equipo equipo) => AFiltrar(equipo, palabra);
+
+    private bool AFiltrar(Equipo equipo, string palabra)
+    {
+        if (string.IsNullOrWhiteSpace(palabra))
+            return true;
+        if (!(string.IsNullOrEmpty(equipo.Usuario) || string.IsNullOrWhiteSpace(equipo.Usuario)))
+        {
+            if (equipo.Usuario.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        if (!(string.IsNullOrEmpty(equipo.Tipo) || string.IsNullOrWhiteSpace(equipo.Tipo)))
+        {
+            if (equipo.Tipo.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        if (!(string.IsNullOrEmpty(equipo.Folio) || string.IsNullOrWhiteSpace(equipo.Folio)))
+        {
+            if (equipo.Folio.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        if (!(string.IsNullOrEmpty(equipo.Marca) || string.IsNullOrWhiteSpace(equipo.Marca)))
+        {
+            if (equipo.Marca.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        if (!(string.IsNullOrEmpty(equipo.Modelo) || string.IsNullOrWhiteSpace(equipo.Modelo)))
+        {
+            if (equipo.Modelo.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        if (!(string.IsNullOrEmpty(equipo.Serie) || string.IsNullOrWhiteSpace(equipo.Serie)))
+        {
+            if (equipo.Serie.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        if (!(string.IsNullOrEmpty(equipo.Nombre) || string.IsNullOrWhiteSpace(equipo.Nombre)))
+        {
+            if (equipo.Nombre.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        if ($"{equipo.FechaModificacion}".Contains(palabra))
+            return true;
+        if (!(string.IsNullOrEmpty(equipo.Observaciones) || string.IsNullOrWhiteSpace(equipo.Observaciones)))
+        {
+            if (equipo.Observaciones.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        return false;
+    }
+
+    public async Task VerHardware(int idEquipo, string tipo, string folio)
+    {
+        EquipoHardwareComputadora hardwareComputadora = await ServicioEquipo.ObtenerPCHardwarePorEquipo(idEquipo);
+
+        string ssd = hardwareComputadora.Ssd == true ? " SSD" : "";
+
+        string mensaje = "Procesador: " + hardwareComputadora.Procesador + ", Ram: " + hardwareComputadora.Ram + " GB, Almacenamiento: " + hardwareComputadora.DiscoDuro + " GB" + ssd;
+
+        string titulo = tipo + " (folio: " + folio + ")";
+
+        await Task.Delay(300);
+
+        await js.InvokeVoidAsync("mensaje", titulo, mensaje, "info");
+    }
+
+    public async Task VerSoftware(int idEquipo, string tipo, string folio)
+    {
+        EquipoSoftwareComputadora softwareComputadora = await ServicioEquipo.ObtenerPCSoftwarePorEquipo(idEquipo);
+
+        string mensaje = "Sistema operativo: " + softwareComputadora.SistemaOperativo + ", Versión de Office: " + softwareComputadora.VersionOffice;
+
+        string titulo = tipo + " (folio: " + folio + ")";
+
+        await Task.Delay(300);
+
+        await js.InvokeVoidAsync("mensaje", titulo, mensaje, "info");
+    }
+
+    public async Task VerObservaciones(string observaciones, string tipo, string folio)
+    {
+        string mensaje = "Observaciones: " + observaciones;
+
+        string titulo = tipo + " (folio: " + folio + ")";
+
+        await Task.Delay(700);
+
+        await js.InvokeVoidAsync("mensaje", titulo, mensaje, "info");
+    }
+
+    protected async Task ObtenerEquiposSinUsuario(bool activar)
+    {
+        await Task.Yield();
+        if (activar)
+        {
+            equiposLibres = true;
+
+            int cantidadEquiposLibres = await ServicioEquipo.CantidadEquiposLibres();
+
+            if (cantidadEquiposLibres > 0)
+            {
+                equipos = (List<Equipo>)await ServicioEquipo.ObtenerEquiposSinUsuario();
+                Snackbar.Add("Equipos sin usuario encontrados: " + cantidadEquiposLibres, Severity.Warning, a => a.VisibleStateDuration = 1500);
+            }
+            else
+            {
+                Snackbar.Add("Todos los equipos tienen al menos 1 usuario al que pertenecen", Severity.Success, config =>
+            {
+                config.Icon = Icons.Filled.Check;
+                config.VisibleStateDuration = 1500;
+            });
+            }
+        }else{
+            equiposLibres = false;
+            equipos = (List<Equipo>)await ServicioEquipo.ObtenerEquipos();
+        }
+    }
+
+    protected async Task Editar(int id)
+    {
+        await Task.Yield();
+        NavigationManager.NavigateTo($"/Equipos/Detalles_Equipo/{id}");
+    }
+
+    protected async Task Eliminar(int id)
+    {
+        await Task.Yield();
+        var confirmacion = await js.InvokeAsync<bool>("confirmar", "Eliminar", "¿Deseas eliminar este registro?", "question");
+
+        if (confirmacion)
+        {
+            await ServicioEquipo.EliminarEquipo(id);
+            equipos.RemoveAll(p => p.Id == id);
+            Snackbar.Add("Equipo Eliminado", Severity.Success, a => a.VisibleStateDuration = 200);
+            totalEquipos = equipos.Count;
+        }
+    }
+}

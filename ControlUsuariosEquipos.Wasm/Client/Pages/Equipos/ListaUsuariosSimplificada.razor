@@ -1,0 +1,117 @@
+﻿@inject IServicioEquipo ServicioEquipo
+@inject ISnackbar Snackbar
+
+@if (usuarios != null && usuarios.Any())
+{
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h6" Align="Align.Center">Selecciona un usuario</MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudContainer MaxWidth="MaxWidth.Small">
+                <MudGrid Justify="Justify.Center">
+                    <MudTable Class="@($"cursor-pointer")" @ref="_table" RowsPerPage="3" Items="usuarios" Hover="true" Dense="true" Striped="true" Bordered="false" Square="true" Elevation="0"
+                          Breakpoint="Breakpoint.Md" @bind-SelectedItem="usuarioSeleccionado" SortLabel="Sort By" Filter="new Func<Usuario,bool>(Filtro)"
+                          RowStyleFunc="@SelectedRowStyleFunc" >
+                        <ToolBarContent>
+                            <MudGrid Justify="Justify.Center">
+                                <MudItem xs="8">
+                                    <MudTextField @bind-Value="palabra" Immediate="true" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                                </MudItem>
+                            </MudGrid>
+                        </ToolBarContent>
+                        <HeaderContent>
+                            <MudTh><MudTableSortLabel SortBy="new Func<Usuario, object>(x=>x.Nombre)">Nombre</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<Usuario, object>(x=>x.Sucursal)">Sucursal</MudTableSortLabel></MudTh>
+                        </HeaderContent>
+                        <RowTemplate Context="userContext">
+                            <MudTd DataLabel="Nombre">@userContext.Nombre</MudTd>
+                            <MudTd DataLabel="Puesto">@userContext.Sucursal</MudTd>
+                        </RowTemplate>
+                        <PagerContent>
+                            <MudTablePager HidePagination="true" HidePageNumber="true" HideRowsPerPage="true" />
+                        </PagerContent>
+                    </MudTable>
+                </MudGrid>
+            </MudContainer>
+        </DialogContent>
+        <DialogActions>
+            <MudButton Color="Color.Inherit" OnClick="Cancelar">Cancelar</MudButton>
+            <MudButton Color="Color.Success" OnClick="SeleccionarUsuario">Seleccionar</MudButton>
+        </DialogActions>
+    </MudDialog>
+}
+else
+{
+    <div class="center">
+        <img src="/images/cargando.gif" width="175" height="150" />
+    </div>
+}
+
+@code {
+    public IEnumerable<Usuario> usuarios;
+    public Usuario usuarioSeleccionado { get; set; }
+
+    private MudTable<Usuario> _table;
+    private string SelectedRowStyleFunc(Usuario usuario, int numeroFila){
+        if (_table.SelectedItem != null && _table.SelectedItem.Equals(usuario))
+        {
+            return "background-color: #c3c3c3";
+        }
+        return string.Empty;
+    }
+
+    public string palabra = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            usuarios = await ServicioEquipo.ObtenerUsuariosSimplificado();
+            usuarioSeleccionado = null;
+        }
+        catch (Exception e)
+        {
+
+            Console.WriteLine("Error encontrado: " + e.Message);
+        }
+    }
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
+
+    private void Cancelar()
+    {
+        MudDialog.Cancel();
+    }
+
+    private void SeleccionarUsuario()
+    {
+        if (usuarioSeleccionado == null)
+        {
+            Snackbar.Add("No se seleccionó un usuario", Severity.Normal, config =>
+            {
+                config.Icon = Icons.Filled.Warning;
+                config.VisibleStateDuration = 1500;
+            });
+            MudDialog.Cancel();
+        }
+        else
+        {
+            MudDialog.Close(DialogResult.Ok(usuarioSeleccionado));
+        }
+    }
+
+    private bool Filtro(Usuario usuario) => AFiltrar(usuario, palabra);
+
+    private bool AFiltrar(Usuario usuario, string palabra)
+    {
+        if (string.IsNullOrWhiteSpace(palabra))
+            return true;
+        if (usuario.Nombre.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (usuario.Puesto.Contains(palabra, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}

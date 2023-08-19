@@ -1,0 +1,52 @@
+﻿@inject IServicioUsuario ServicioUsuario
+@inject ISnackbar Snackbar
+
+<EditForm Model="usuarioRenault" OnValidSubmit="AgregarUsuarioRenault">
+    <DataAnnotationsValidator />
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h4" Align="Align.Center">Nuevo usuario SIA Renault</MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudContainer MaxWidth="MaxWidth.Small">
+                <MudGrid Justify="Justify.Center">
+                    <MudItem xs="6">
+                        <MudTextField Label="Usuario" @bind-Value="@usuarioRenault.Usuario"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudTextField Label="Ubicacion" @bind-Value="@usuarioRenault.Ubicacion"></MudTextField>
+                    </MudItem>
+                </MudGrid>
+            </MudContainer>
+        </DialogContent>
+        <DialogActions>
+            <MudButton Color="Color.Inherit" OnClick="Cancelar">Cancelar</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Color="Color.Success">Guardar</MudButton>
+        </DialogActions>
+    </MudDialog>
+</EditForm>
+
+@code {
+    public Usuario_Sia_Renault usuarioRenault = new Usuario_Sia_Renault();
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
+
+    private void Cancelar()
+    {
+        MudDialog.Cancel();
+    }
+
+    private void AgregarUsuarioRenault()
+    {
+        if (string.IsNullOrEmpty(usuarioRenault.Usuario.Trim()) || string.IsNullOrEmpty(usuarioRenault.Ubicacion.Trim()))
+        {
+            Snackbar.Add("Por favor, ingresa valor para uno o ambos campos vacíos.", Severity.Success, a => a.VisibleStateDuration = 500);
+        }
+        else
+        {
+            MudDialog.Close(DialogResult.Ok(usuarioRenault));
+            Snackbar.Add("Usuario Sia Renault agregado", Severity.Success, a => a.VisibleStateDuration = 200);
+        }
+    }
+}

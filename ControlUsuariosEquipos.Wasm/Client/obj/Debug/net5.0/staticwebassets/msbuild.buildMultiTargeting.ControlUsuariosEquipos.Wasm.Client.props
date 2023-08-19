@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ControlUsuariosEquipos.Wasm.Client.props" />
+</Project>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ControlUsuariosEquipos.Wasm.Client.props" />
+</Project>

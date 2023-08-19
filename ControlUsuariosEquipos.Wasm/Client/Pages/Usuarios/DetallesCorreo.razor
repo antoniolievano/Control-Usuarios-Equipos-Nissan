@@ -1,0 +1,67 @@
+﻿@inject IServicioUsuario ServicioUsuario
+@inject ISnackbar Snackbar
+
+<EditForm Model="correo" OnValidSubmit="AgregarCorreo">
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h4" Align="Align.Center">Nuevo correo</MudText>
+        </TitleContent>
+        <DialogContent>
+            <DataAnnotationsValidator />
+            <MudContainer MaxWidth="MaxWidth.Small">
+                <MudGrid Justify="Justify.Center" Spacing="2">
+                    <MudItem xs="2"></MudItem>
+                    <MudItem xs="8">
+                        <MudTextField Label="Correo" @bind-Value="@correo.Correo"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="2"></MudItem>
+                    <MudItem xs="2"></MudItem>
+                    <MudItem xs="8">
+                        <MudTextField Label="Contraseña" @bind-Value="@correo.Contraseña"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="2"></MudItem>
+                </MudGrid>
+            </MudContainer>
+        </DialogContent>
+        <DialogActions>
+            <MudButton Color="Color.Inherit" OnClick="Cancelar">Cancelar</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Color="Color.Success">Guardar</MudButton>
+        </DialogActions>
+    </MudDialog>
+</EditForm>
+
+@code {
+    public Usuario_Correos correo = new Usuario_Correos();
+    private bool validar;
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
+
+    private void Cancelar()
+    {
+        MudDialog.Cancel();
+    }
+
+    private void AgregarCorreo()
+    {
+        validar = true;
+        correo.Correo = correo.Correo.Trim();
+
+        if (string.IsNullOrEmpty(correo.Correo))
+        {
+            Snackbar.Add("Por favor, ingresa valor para uno o ambos campos vacíos.", Severity.Success, a => a.VisibleStateDuration = 500);
+            validar = false;
+        }
+        if (!Regex.IsMatch(correo.Correo, @"^[a-zA-Z0-9_ÁÉÍÓÚáéíóú]+([-+.'][a-zA-Z0-9_ÁÉÍÓÚáéíóú]+)*@[a-zA-Z0-9_]+[.][A-Za-z]+([.][A-Za-z]+)?$"))
+        {
+            Snackbar.Add("El correo ingresado no es válido", Severity.Success, a => a.VisibleStateDuration = 500);
+            validar = false;
+        }
+
+        if(validar)
+        {
+            MudDialog.Close(DialogResult.Ok(correo));
+            Snackbar.Add("Correo agregado", Severity.Success, a => a.VisibleStateDuration = 200);
+        }
+    }
+}

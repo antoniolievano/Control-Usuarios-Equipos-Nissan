@@ -1,0 +1,684 @@
+﻿@page "/Equipos/Detalles_Equipo"
+@page "/Equipos/Detalles_Equipo/{id:int}"
+@inject IServicioAgencia ServicioAgencia
+@inject IServicioSucursal ServicioSucursal
+@inject IServicioEquipo ServicioEquipo
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+
+@if (agencias != null && sucursales != null && usuarios != null && renderizar == true)
+{
+    <EditForm Model="equipo" OnValidSubmit="GuardarEquipo">
+        <DataAnnotationsValidator />
+        <MudCard>
+            <MudCardHeader>
+                <MudGrid Justify="Justify.Center">
+                    <MudText Typo="Typo.h3" Align="Align.Center">Detalles de equipo</MudText>
+                </MudGrid>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudContainer>
+
+                    <MudGrid Justify="Justify.Center" Spacing="6">
+                        <MudItem xs="1">
+                            <MudTooltip Text="Cancelar" Color="Color.Default" Duration="700">
+                                <MudIconButton OnClick="(()=>Cancelar())" Icon="@Icons.Filled.Cancel" Color="Color.Secondary" />
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem xs="1">
+                            <MudTooltip Text="Guardar Equipo" Color="Color.Default" Duration="700">
+                                <MudIconButton ButtonType="ButtonType.Submit" Icon="@Icons.Filled.Save" Color="Color.Success" />
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem xs="3">
+                            <MudCheckBox @bind-Checked="habilitar" Disabled="@deshabilitarCaja" Color="@Color.Primary">
+                                Componentes: @(habilitar == true ? "Habilitado" : "Deshabilitado")
+                            </MudCheckBox>
+                        </MudItem>
+                        @if (habilitar)
+                        {
+                            <MudItem xs="5">
+                                <MudText Typo="Typo.body1" Align="Align.Center">Información de componentes ubicada abajo. Si está habilitada, se enviarán los componentes</MudText>
+                            </MudItem>
+                            <MudItem xs="1">
+                                <MudTooltip Text="Eliminar valores de componente" Color="Color.Default" Duration="700">
+                                    <MudIconButton OnClick="(() => EliminarComponentes())" Icon="@Icons.Filled.PhonelinkErase" Color="Color.Secondary" />
+                                </MudTooltip>
+                            </MudItem>
+                        }
+                    </MudGrid>
+
+                    <MudGrid Spacing="4">
+                        <MudItem xs="6">
+                            <MudSelect T="int" Label="Agencia" Margin="Margin.Dense" Variant="Variant.Filled" Value="equipo.IdAgencia" ValueChanged="@((int idAgencia) => AgenciaACambiado(idAgencia))">
+                                @foreach (var item in agencias)
+                                {
+                                    <MudSelectItem T="int" Value="@item.Id">@item.Nombre</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudSelect T="int" Label="Sucursales" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="equipo.IdSucursal">
+                                @foreach (var item in sucursales)
+                                {
+                                    <MudSelectItem T="int" Value="@item.Id">@item.Nombre</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid Justify="Justify.FlexStart">
+                        @if (id > 0)
+                        {
+                            <MudItem xs="6">
+                                <MudTextField @ref="usuarioActualEditar" T="string" ReadOnly="true" Label="Usuario" Text="@nombreUsuario" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Usuario" />
+                            </MudItem> 
+                        }
+                        else
+                        {
+                            <MudItem xs="6">
+                                <MudTextField @ref="usuarioActual" T="int?" ReadOnly="true" Label="Usuario" Text="@nombreUsuario" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.IdUsuario" />
+                            </MudItem>
+                        }
+                        <MudItem xs="1">
+                            <MudTooltip Text="Resetear Usuario" Color="Color.Default" Duration="700">
+                                <MudIconButton OnClick="(() => resetearDesplegable())" Icon="@Icons.Filled.Restore" Color="Color.Warning" />
+                            </MudTooltip>
+                        </MudItem>
+                        <MudItem xs="1">
+                            <MudTooltip Text="Buscar usuario" Color="Color.Default" Duration="700">
+                                <MudIconButton OnClick="(() => BuscarUsuario())" Icon="@Icons.Filled.Search" Color="Color.Primary" />
+                            </MudTooltip>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid><MudItem xs="12" /></MudGrid>
+                    <MudGrid Spacing="2">
+                        <MudItem xs="4">
+                            <MudTextField For="@(()=>equipo.Tipo)" Label="Tipo" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Tipo" />
+                        </MudItem>
+                        <MudItem xs="4">
+                            <MudTextField Label="Marca" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Marca" />
+                        </MudItem>
+                        <MudItem xs="4">
+                            <MudTextField Label="Nombre" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Nombre" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid Spacing="2">
+                        <MudItem xs="4">
+                            <MudTextField Label="Modelo" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Modelo" />
+                        </MudItem>
+                        <MudItem xs="4">
+                            <MudTextField Label="Serie" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Serie" />
+                        </MudItem>
+                        <MudItem xs="4">
+                            <MudTextField For="@(()=>equipo.Folio)" Label="Folio" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Folio" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTextField Label="Observaciones" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.Observaciones" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid Justify="Justify.Center">
+                        <MudItem xs="6">
+                            <MudTextField Label="Fecha de modificación" ReadOnly=true Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.FechaModificacion">equipo.FechaModificacion.ToString("yyyyMMdd")</MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid><MudItem xs="12" /></MudGrid>
+                    <MudGrid><MudItem xs="12" /></MudGrid>
+                    <MudGrid Justify="Justify.Center" Spacing="3">
+
+                    </MudGrid>
+
+                </MudContainer>
+            </MudCardContent>
+        </MudCard>
+        <div class="row"><div class="col-md-12 mb-3" /></div>
+        <MudDivider DividerType="DividerType.FullWidth" />
+        <div class="row"><div class="col-md-12 mb-3" /></div>
+        @if (habilitar)
+        {
+            <MudContainer>
+                <MudGrid Spacing="2">
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">Hardware</MudText>
+                        <MudGrid Justify="Justify.Center">
+                            <MudItem xs="6">
+                                <MudTextField @ref="procesadorActual" For="@(() => equipo.HardwareComputadora.Procesador)" Required="@(habilitar == true ? true : false)" Label="Procesador" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.HardwareComputadora.Procesador" />
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudNumericField T="int" For="@(() => equipo.HardwareComputadora.Ram)" Required="@(habilitar == true ? true : false)" Label="RAM" Margin="Margin.Dense" Variant="Variant.Filled" Min="1" Max="32" @bind-Value="@equipo.HardwareComputadora.Ram" />
+                            </MudItem>
+                        </MudGrid>
+                        <MudGrid Justify="Justify.Center">
+                            <MudItem xs="6">
+                                <MudNumericField T="int" For="@(() => equipo.HardwareComputadora.DiscoDuro)" Required="@(habilitar == true ? true : false)" Label="Disco duro" Margin="Margin.Dense" Variant="Variant.Filled" Min="32" Max="4096" @bind-Value="@equipo.HardwareComputadora.DiscoDuro" />
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudCheckBox @bind-Checked="@equipo.HardwareComputadora.Ssd" Color="@Color.Primary">
+                                    Unidad SSD: @(equipo.HardwareComputadora.Ssd == true ? "Sí" : "No")
+                                </MudCheckBox>
+                            </MudItem>
+                        </MudGrid>
+
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5" Align="Align.Center">Software</MudText>
+                        <MudGrid Justify="Justify.Center">
+                            <MudItem xs="6">
+                                <MudTextField @ref="sistemaOperativoActual" For="@(() => equipo.SoftwareComputadora.SistemaOperativo)" Required="@(habilitar == true ? true : false)" Label="Sistema Operativo" Margin="Margin.Dense" Variant="Variant.Filled" @bind-Value="@equipo.SoftwareComputadora.SistemaOperativo" />
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudNumericField T="int" For="@(() => equipo.SoftwareComputadora.VersionOffice)" Required="@(habilitar == true ? true : false)" Label="Versión de Office" Margin="Margin.Dense" Variant="Variant.Filled" Min="0" @bind-Value="@equipo.SoftwareComputadora.VersionOffice" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudItem>
+                </MudGrid>
+            </MudContainer>
+        }
+    </EditForm>
+}
+else
+{
+    <div class="center">
+        <img src="/images/cargando.gif" width="175" height="150" />
+    </div>
+}
+
+@code {
+    public Equipo equipo;
+    public List<Usuario> usuarios;
+    List<object> listaEquipo = new List<object>();
+    List<object> listaCopiaEquipo = new List<object>();
+    bool cambio = false;
+    List<object> listaErrores = new List<object>();
+    List<object> listaValoresIncorrectos = new List<object>();
+    public IEnumerable<Agencia> agencias = new List<Agencia>();
+    public IEnumerable<Sucursal> sucursales = new List<Sucursal>();
+
+    [Parameter]
+    public int id { get; set; }
+
+    public MudTextField<int?> usuarioActual { get; set; }
+    public MudTextField<string> usuarioActualEditar { get; set; }
+    public MudTextField<string> procesadorActual { get; set; }
+    public MudTextField<string> sistemaOperativoActual { get; set; }
+
+    private bool habilitar { get; set; }
+    private bool esSSD { get; set; }
+    private bool renderizar;
+    private bool validarValoresComponentes { get; set; }
+    private bool validarComponentes { get; set; }
+    private bool validarFolio { get; set; }
+    private bool deshabilitarCaja { get; set; }
+    private bool estaActualizando { get; set; }
+    private string ultimoFolio { get; set; }
+    private string palabra = "";
+    private string nombreUsuario;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            if (id > 0)
+            {
+                equipo = await ServicioEquipo.DetallesEquipo(id);
+                nombreUsuario = equipo.Usuario;
+
+                if (equipo.HardwareComputadora != null && equipo.SoftwareComputadora != null)
+                {
+                    habilitar = true;
+                    deshabilitarCaja = true;
+                }
+
+                estaActualizando = true;
+                ultimoFolio = equipo.Folio;
+
+                PropertyInfo[] propiedadesCopiaEquipo = equipo.GetType().GetProperties();
+
+                foreach (var info in propiedadesCopiaEquipo)
+                {
+                    var valor = info.GetValue(equipo);
+                    listaCopiaEquipo.Add(valor);
+                }
+
+                if (equipo.HardwareComputadora != null && equipo.SoftwareComputadora != null)
+                {
+                    PropertyInfo[] propiedadesCopiaEquipoHardware = equipo.HardwareComputadora.GetType().GetProperties();
+
+                    foreach (var info in propiedadesCopiaEquipoHardware)
+                    {
+                        var valor = info.GetValue(equipo.HardwareComputadora);
+                        listaCopiaEquipo.Add(valor);
+                    }
+
+                    PropertyInfo[] propiedadesCopiaEquipoSoftware = equipo.SoftwareComputadora.GetType().GetProperties();
+
+                    foreach (var info in propiedadesCopiaEquipoSoftware)
+                    {
+                        var valor = info.GetValue(equipo.SoftwareComputadora);
+                        listaCopiaEquipo.Add(valor);
+                    }
+                }
+                else
+                {
+                    equipo.HardwareComputadora = new EquipoHardwareComputadora() { Ram = 1, DiscoDuro = 32 };
+                    equipo.SoftwareComputadora = new EquipoSoftwareComputadora() { VersionOffice = 2013 };
+                }
+            }
+            else
+            {
+                equipo = new Equipo() { FechaModificacion = DateTime.Today };
+                equipo.HardwareComputadora = new EquipoHardwareComputadora() { Procesador = "-" };
+                equipo.SoftwareComputadora = new EquipoSoftwareComputadora() { SistemaOperativo = "W 10", VersionOffice = 2016 };
+                deshabilitarCaja = false;
+            }
+
+            usuarios = (List<Usuario>)await ServicioEquipo.ObtenerUsuariosSimplificado();
+            agencias = await ServicioAgencia.ObtenerAgencias();
+
+            if (agencias != null && agencias.Any())
+            {
+                equipo.IdAgencia = agencias.FirstOrDefault().Id;
+
+                // Cargar las sucursales en base al Id de la agencia predeterminada
+                await CargarSucursales(equipo.IdAgencia);
+            }
+
+            renderizar = true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error encontrado: " + e.Message);
+        }
+    }
+
+    protected async Task AgenciaACambiado(int idAgencia)
+    {
+        equipo.IdAgencia = idAgencia;
+
+        if (equipo.IdAgencia > 0)
+            await CargarSucursales(equipo.IdAgencia);
+    }
+
+    private async Task CargarSucursales(int idAgencia)
+    {
+        sucursales = await ServicioSucursal.ObtenerSucursalesPorAgencia(idAgencia);
+
+        if (sucursales != null && sucursales.Any())
+        {
+            equipo.IdSucursal = sucursales.FirstOrDefault().Id;
+        }
+    }
+
+    protected async Task BuscarUsuario()
+    {
+        await Task.Yield();
+        var dialog = DialogService.Show<ListaUsuariosSimplificada>();
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            var usuarioSeleccionado = (Usuario)result.Data;
+            
+            equipo.IdUsuario = usuarioSeleccionado.Id;
+            equipo.IdAgencia = usuarioSeleccionado.IdAgencia;
+            equipo.IdSucursal = usuarioSeleccionado.IdSucursal;
+            nombreUsuario = usuarioSeleccionado.Nombre;
+        }
+    }
+
+    public async Task resetearDesplegable()
+    {
+        await Task.Yield();
+        nombreUsuario = null;
+        if (equipo.IdUsuario != null)
+        {
+            equipo.IdAgencia = agencias.FirstOrDefault().Id;
+            await CargarSucursales(equipo.IdAgencia);
+        }
+        equipo.IdUsuario = null;
+        if(id>0){
+            usuarioActualEditar.Reset();
+        }else{
+            usuarioActual.Reset();
+        }
+    }
+
+    protected async Task EliminarComponentes()
+    {
+        await Task.Yield();
+        var confirmacion = await js.InvokeAsync<bool>("confirmar", "Restablecer", "¿Deseas restablecer los componentes?", "question");
+
+        if (confirmacion)
+        {
+            procesadorActual.Reset();
+            sistemaOperativoActual.Reset();
+            equipo.HardwareComputadora.Procesador = null;
+            equipo.SoftwareComputadora.SistemaOperativo = null;
+            equipo.HardwareComputadora.Ram = 1;
+            equipo.HardwareComputadora.DiscoDuro = 32;
+            equipo.HardwareComputadora.Ssd = false;
+            equipo.SoftwareComputadora.VersionOffice = 2013;
+            deshabilitarCaja = false;
+            cambio = true;
+        }
+    }
+
+    protected async Task GuardarEquipo()
+    {
+        await Task.Yield();
+        validarFolio = true;
+        validarComponentes = true;
+        validarValoresComponentes = true;
+
+        if (habilitar)
+        {
+            if (string.IsNullOrEmpty(procesadorActual.Text))
+            {
+                equipo.HardwareComputadora.Procesador = null;
+            }
+
+            if (string.IsNullOrEmpty(sistemaOperativoActual.Text))
+            {
+                equipo.SoftwareComputadora.SistemaOperativo = null;
+            }
+
+            PropertyInfo[] propiedadesHardware = equipo.HardwareComputadora.GetType().GetProperties();
+            var propiedadesNombreHardware = typeof(EquipoHardwareComputadora).GetProperties();
+            int i = 0;
+
+            foreach (var info in propiedadesHardware)
+            {
+                var valor = info.GetValue(equipo.HardwareComputadora);
+                if (valor == null)
+                {
+                    listaErrores.Add(propiedadesNombreHardware[i].Name);
+                    validarComponentes = false;
+                    info.SetValue(equipo.HardwareComputadora, null);
+                    break;
+                }
+                i++;
+            }
+
+            if(!Regex.IsMatch(equipo.HardwareComputadora.Ram.ToString(), @"^[0-9]+$")){
+                validarValoresComponentes = false;
+                listaValoresIncorrectos.Add("RAM");
+            }
+            if(!Regex.IsMatch(equipo.HardwareComputadora.DiscoDuro.ToString(), @"^[0-9]+$")){
+                validarValoresComponentes = false;
+                listaValoresIncorrectos.Add("Disco duro");
+            }
+
+            PropertyInfo[] propiedadesSoftware = equipo.SoftwareComputadora.GetType().GetProperties();
+            var propiedadesNombreSoftware = typeof(EquipoSoftwareComputadora).GetProperties();
+            i = 0;
+
+            foreach (var info in propiedadesSoftware)
+            {
+                var valor = info.GetValue(equipo.SoftwareComputadora);
+                if (valor == null)
+                {
+                    if (propiedadesNombreSoftware[i].Name.Equals("SistemaOperativo"))
+                    {
+                        listaErrores.Add("Sistema operativo");
+                    }
+                    validarComponentes = false;
+                    info.SetValue(equipo.SoftwareComputadora, null);
+                    break;
+                }
+                i++;
+            }
+
+            if(!Regex.IsMatch(equipo.SoftwareComputadora.VersionOffice.ToString(), @"^[0-9]+$")){
+                validarValoresComponentes = false;
+                listaValoresIncorrectos.Add("Versión de Office");
+            }
+        }
+
+        List<string> folios = (List<string>)await ServicioEquipo.ObtenerFolios();
+
+        if (estaActualizando)
+        {
+            for (int i = 0; i < folios.Count; i++)
+            {
+                if (folios[i].Equals(ultimoFolio))
+                {
+                    if (equipo.Folio.ToUpper().Equals(folios[i]))
+                    {
+                        break;
+                    }
+                }
+                if (equipo.Folio.ToUpper().Equals(folios[i]))
+                {
+                    validarFolio = false;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < folios.Count; i++)
+            {
+                if (equipo.Folio.ToUpper().Equals(folios[i]))
+                {
+                    validarFolio = false;
+                }
+            }
+        }
+
+        if (validarFolio && validarComponentes && validarValoresComponentes)
+        {
+            if (!habilitar)
+            {
+                equipo.HardwareComputadora = null;
+                equipo.SoftwareComputadora = null;
+            }
+
+            if (equipo.Id > 0)
+            {
+                PropertyInfo[] propiedadesEquipo = equipo.GetType().GetProperties();
+
+                foreach (var info in propiedadesEquipo)
+                {
+                    var valor = info.GetValue(equipo);
+                    listaEquipo.Add(valor);
+                }
+
+                if (equipo.HardwareComputadora != null && equipo.SoftwareComputadora != null)
+                {
+                    PropertyInfo[] propiedadesEquipoHardware = equipo.HardwareComputadora.GetType().GetProperties();
+
+                    foreach (var info in propiedadesEquipoHardware)
+                    {
+                        var valor = info.GetValue(equipo.HardwareComputadora);
+                        listaEquipo.Add(valor);
+                    }
+
+                    PropertyInfo[] propiedadesEquipoSoftware = equipo.SoftwareComputadora.GetType().GetProperties();
+
+                    foreach (var info in propiedadesEquipoSoftware)
+                    {
+                        var valor = info.GetValue(equipo.SoftwareComputadora);
+                        listaEquipo.Add(valor);
+                    }
+                }
+
+                for (int i = 0; i < listaEquipo.Count; i++)
+                {
+                    var valorActual = listaEquipo[i];
+                    var valorInicial = listaCopiaEquipo[i];
+                    if (valorActual == null && valorInicial == null)
+                    {
+                        continue;
+                    }
+                    else if (valorActual == null && valorInicial != null)
+                    {
+                        cambio = true;
+                        break;
+                    }
+                    else if (valorActual != null && valorInicial == null)
+                    {
+                        cambio = true;
+                        break;
+                    }
+                    else if (!valorActual.Equals(valorInicial))
+                    {
+                        cambio = true;
+                        break;
+                    }
+                }
+
+                if (cambio)
+                {
+                    equipo.FechaModificacion = DateTime.Now;
+                }
+
+                AnularEspacios(equipo);
+                await ServicioEquipo.GuardarEquipo(equipo);
+                Snackbar.Add("Equipo actualizado", Severity.Success, a => a.VisibleStateDuration = 200);
+
+            }
+            else
+            {
+                if (!habilitar)
+                {
+                    equipo.HardwareComputadora = null;
+                    equipo.SoftwareComputadora = null;
+                }
+
+                AnularEspacios(equipo);
+                await ServicioEquipo.GuardarEquipo(equipo);
+                Snackbar.Add("Equipo guardado", Severity.Success, a => a.VisibleStateDuration = 200);
+            }
+            NavigateToHome();
+        }
+        else
+        {
+            string mensaje = "";
+            string mensajeValores = "";
+            if (!validarFolio)
+            {
+                mensaje += "El valor actual del campo folio ya existe dentro de la base de datos. ";
+            }
+
+            if (!validarComponentes)
+            {
+                mensaje += $"Campos requeridos vacíos encontrados ({listaErrores.Count}): ";
+                for (int i = 0; i < listaErrores.Count; i++)
+                {
+                    if ((i + 1) == listaErrores.Count)
+                    {
+                        mensaje += listaErrores[i].ToString();
+                    }
+                    else
+                    {
+                        mensaje += listaErrores[i].ToString() + ", ";
+                    }
+                }
+            }
+
+            if(!validarValoresComponentes){
+                mensajeValores = $"Valores incorrectos detectados ({listaValoresIncorrectos}): ";
+                for (int i = 0; i < listaValoresIncorrectos.Count; i++)
+                {
+                    if ((i + 1) == listaValoresIncorrectos.Count)
+                    {
+                        mensajeValores += listaValoresIncorrectos[i].ToString();
+                    }
+                    else
+                    {
+                        mensajeValores += listaValoresIncorrectos[i].ToString() + ", ";
+                    }
+                }
+            }
+
+            if (listaErrores.Any())
+            {
+                listaErrores.Clear();
+            }
+
+            if (listaValoresIncorrectos.Any())
+            {
+                listaValoresIncorrectos.Clear();
+            }
+
+            Snackbar.Add(mensaje, Severity.Normal, config =>
+        {
+            config.Icon = Icons.Filled.Warning;
+            config.VisibleStateDuration = 1500;
+        });
+            Snackbar.Add(mensajeValores, Severity.Normal, config =>
+            {
+                config.Icon = Icons.Filled.Warning;
+                config.VisibleStateDuration = 1500;
+            });
+            mensaje = "";
+            mensajeValores = "";
+        }
+    }
+
+    protected async Task Cancelar()
+    {
+        await Task.Yield();
+        NavigateToHome();
+    }
+
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/Equipos");
+    }
+
+    protected void AnularEspacios(Equipo equipo)
+    {
+        if (equipo.Marca != null)
+        {
+            if (string.IsNullOrWhiteSpace(equipo.Marca.Trim()))
+            {
+                equipo.Marca = null;
+            }
+        }
+        if (equipo.Nombre != null)
+        {
+
+            if (string.IsNullOrWhiteSpace(equipo.Nombre.Trim()))
+            {
+                equipo.Nombre = null;
+            }
+        }
+        if (equipo.Marca != null)
+        {
+
+        }
+        if (equipo.Modelo != null)
+        {
+            if (string.IsNullOrWhiteSpace(equipo.Modelo.Trim()))
+            {
+                equipo.Modelo = null;
+            }
+        }
+
+        if (equipo.Serie != null)
+        {
+            if (string.IsNullOrWhiteSpace(equipo.Serie.Trim()))
+            {
+                equipo.Serie = null;
+            }
+        }
+
+        if (equipo.Folio != null)
+        {
+            if (string.IsNullOrWhiteSpace(equipo.Folio.Trim()))
+            {
+                equipo.Folio = null;
+            }
+        }
+        if (equipo.Observaciones != null)
+        {
+            if (string.IsNullOrWhiteSpace(equipo.Observaciones.Trim()))
+            {
+                equipo.Observaciones = null;
+            }
+        }
+    }
+}
