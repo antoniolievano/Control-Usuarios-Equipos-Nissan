@@ -1,7 +1,7 @@
 # Control-Usuarios-Equipos-Nissan
 El proyecto es un software de creación y gestión de datos, dichos datos se encuentran dentro de una base de datos de SQL Server.
 El proyecto cumple con las operaciones básicas del CRUD para administración de datos de usuarios y equipos, a prueba de la mayoría de fallas durante el proceso de
-ejecución, siendo eficaz en la realización de su tarea principal.
+ejecución.
 
 ---- Notas para su Utilización ----
 
