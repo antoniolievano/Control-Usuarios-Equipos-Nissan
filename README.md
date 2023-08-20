@@ -8,4 +8,4 @@ ejecución, siendo eficaz en la realización de su tarea principal.
 1- Se deberá instalar la base de datos que se encuentra dentro de la carpeta "Database" en el entorno de bases de datos de SQL Server antes de utilizar el programa.
 2- Al cargar el proyecto en Visual Studio y posteriormente abrirlo por primera vez, se deberá cambiar el nombre del entorno de bases de datos de SQL Server que viene
 por defecto en el archivo "appsettings.json", el cuál hace referencia a "DefaultConnection", al lado del valor "Server=" por el nombre del entorno en que se haya
-instalado la base de datos, dejando unicamente los valores de los datos como "Database=" y "Trusted_Connection=" que se encuentran después de punto y coma.
+instalado la base de datos, dejando unicamente los valores de los datos como "Database=" y "Trusted_Connection=" que se encuentran después del punto y coma.
